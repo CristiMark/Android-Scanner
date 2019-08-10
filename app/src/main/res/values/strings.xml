@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">AndroidScaner</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_dscanner_list">2DScanner</string>
+    <string name="title_dscanner_detail">2DScanner Detail</string>
+</resources>
