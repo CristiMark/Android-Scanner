@@ -43,9 +43,8 @@ public class WebRequest {
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(15001);
             conn.setConnectTimeout(15001);
-            conn.setDoInput(true);
-            conn.setDoOutput(true);
             if (requestmethod == POSTRequest) {
+                conn.setDoOutput(true);
                 conn.setRequestMethod("POST");
             } else if (requestmethod == GETRequest) {
                 conn.setRequestMethod("GET");

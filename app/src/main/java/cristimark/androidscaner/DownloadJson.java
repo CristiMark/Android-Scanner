@@ -23,7 +23,8 @@ import java.util.HashMap;
 public class DownloadJson extends AsyncTask<Void, Void, String> {
 
     // URL to get contacts JSON
-    private String url = "http://127.0.0.1:90/LeibingerService/api/scanner";
+   // private String url = "http://10.0.2.2:90/LeibingerService/api/scanner";
+    private String url = "http://10.0.2.2/WebAPI/api/blogs";
 
 
     ArrayList<HashMap<String, String>> scannedList;
@@ -52,22 +53,19 @@ public class DownloadJson extends AsyncTask<Void, Void, String> {
         }
 
         @Override
-        protected String doInBackground(Void... arg0)
-            {
-                return download();
-            }
-//// Creating service handler class instance
-//            WebRequest webreq = new WebRequest();
-//
-//// Making a request to url and getting response
-//            String jsonStr = webreq.makeWebServiceCall(url, WebRequest.GETRequest);
-//
-//            Log.d("Response: ", "> " + jsonStr);
-//            ParseJSON parseJson = new ParseJSON();
-//            scannedList = parseJson.ParseJSON(jsonStr);
-//
-//            return null;
+        protected String doInBackground(Void... arg0) {
+            //  return download();
+            // }
+// Creating service handler class instance
+            WebRequest webreq = new WebRequest();
 
+// Making a request to url and getting response
+            String jsonStr = webreq.makeWebServiceCall(url, WebRequest.GETRequest);
+
+            Log.d("Response: ", "> " + jsonStr);
+
+            return jsonStr;
+        }
 
         @Override
         protected void onPostExecute(String jsonData) {
@@ -84,7 +82,8 @@ public class DownloadJson extends AsyncTask<Void, Void, String> {
             }else
             {
                 //PARSER
-               // new JSONParser(c,jsonData,gv).execute();
+              //  new JSONParser(c,jsonData,gv).execute();
+                scannedList =  new ParseJSON().ParseJSON(jsonData);
             }
         }
 /**
