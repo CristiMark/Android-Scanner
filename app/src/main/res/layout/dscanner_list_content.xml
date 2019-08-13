@@ -12,36 +12,36 @@
         <!--android:textAppearance="?attr/textAppearanceListItem" />-->
 
     <TextView
-        android:id="@+id/Barcode"
+        android:id="@+id/txtBarcode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
         android:enabled="false"
         android:textAppearance="?attr/textAppearanceListItem" />
 
-    <!--<TextView-->
-        <!--android:id="@+id/BarcodeType"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="@dimen/text_margin"-->
-        <!--android:textAppearance="?attr/textAppearanceListItem" />-->
+    <TextView
+        android:id="@+id/txtBarcodeType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:textAppearance="?attr/textAppearanceListItem" />
 
-    <!--<CheckBox-->
-        <!--android:id="@+id/DMR"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="@dimen/text_margin"-->
-        <!--android:textAppearance="?attr/textAppearanceListItem" />-->
+    <CheckBox
+        android:id="@+id/txtDMR"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:textAppearance="?attr/textAppearanceListItem" />
 
-    <!--<CheckBox-->
-        <!--android:id="@+id/Deliver"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="@dimen/text_margin"-->
-        <!--android:textAppearance="?attr/textAppearanceListItem" />-->
+    <CheckBox
+        android:id="@+id/txtDeliver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:textAppearance="?attr/textAppearanceListItem" />
 
     <EditText
-        android:id="@+id/PrintDate"
+        android:id="@+id/txtPrintDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
@@ -49,41 +49,41 @@
         android:textAppearance="?attr/textAppearanceListItem"
         android:inputType="date" />
 
-    <!--<TextView-->
-        <!--android:id="@+id/PrintUser"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="@dimen/text_margin"-->
-        <!--android:textAppearance="?attr/textAppearanceListItem" />-->
+    <TextView
+        android:id="@+id/txtPrintUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:textAppearance="?attr/textAppearanceListItem" />
 
-    <!--<TextView-->
-        <!--android:id="@+id/InspScanUser"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="@dimen/text_margin"-->
-        <!--android:textAppearance="?attr/textAppearanceListItem" />-->
+    <TextView
+        android:id="@+id/txtInspScanUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:textAppearance="?attr/textAppearanceListItem" />
 
-    <!--<EditText-->
-        <!--android:id="@+id/InspScanDate"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="@dimen/text_margin"-->
-        <!--android:inputType="date"-->
-        <!--android:textAppearance="?attr/textAppearanceListItem" />-->
+    <EditText
+        android:id="@+id/txtInspScanDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:inputType="date"
+        android:textAppearance="?attr/textAppearanceListItem" />
 
-    <!--<EditText-->
-        <!--android:id="@+id/DelivScanDate"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="@dimen/text_margin"-->
-        <!--android:inputType="date"-->
-        <!--android:textAppearance="?attr/textAppearanceListItem" />-->
+    <EditText
+        android:id="@+id/txtDelivScanDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:inputType="date"
+        android:textAppearance="?attr/textAppearanceListItem" />
 
-    <!--<TextView-->
-        <!--android:id="@+id/DelivScnaUser"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_margin="@dimen/text_margin"-->
-        <!--android:textAppearance="?attr/textAppearanceListItem" />-->
+    <TextView
+        android:id="@+id/txtDelivScnaUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/text_margin"
+        android:textAppearance="?attr/textAppearanceListItem" />
 
 </LinearLayout>

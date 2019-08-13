@@ -1,4 +1,4 @@
-package cristimark.androidscaner;
+package androidscaner.Connections;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;

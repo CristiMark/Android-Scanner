@@ -1,4 +1,4 @@
-package cristimark.androidscaner;
+package androidscaner;
 
 import android.content.Intent;
 import android.os.Bundle;

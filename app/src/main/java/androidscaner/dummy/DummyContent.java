@@ -1,4 +1,4 @@
-package cristimark.androidscaner.dummy;
+package androidscaner.dummy;
 
 import java.util.ArrayList;
 import java.util.HashMap;

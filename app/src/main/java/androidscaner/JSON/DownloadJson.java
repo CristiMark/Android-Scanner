@@ -1,41 +1,43 @@
-package cristimark.androidscaner;
+package androidscaner.JSON;
 
-import cristimark.androidscaner.JSON.*;
-import android.app.ProgressDialog;
-import android.content.Context;
-import android.graphics.ColorSpace;
+import androidscaner.Connections.WebRequest;
+import androidscaner.DScannerListActivity;
+import androidscaner.Model.LBG_Scanner;
+import androidscaner.RecyclerViewAdapter;
+
 import android.os.AsyncTask;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class DownloadJson extends AsyncTask<Void, Void, String> {
 
     // URL to get contacts JSON
-   // private String url = "http://10.0.2.2:90/LeibingerService/api/scanner";
-    private String url = "http://10.0.2.2/WebAPI/api/blogs";
+    //private String url = "http://10.0.2.2:90/LeibingerService/api/scanner";
+    private String url = "http://10.9.2.113:90/LeibingerService/api/scanner";
 
 
-    ArrayList<HashMap<String, String>> scannedList;
+   // ArrayList<HashMap<String, String>> scannedList;
+    ArrayList<LBG_Scanner> scannedList;
     ProgressBar proBar;
-    Context context;
+    DScannerListActivity context;
+    RecyclerView recycleview;
 
 
-    public DownloadJson(ArrayList<HashMap<String, String>> scannedList, ProgressBar proBar, Context context) {
+//    public DownloadJson(ArrayList<HashMap<String, String>> scannedList, ProgressBar proBar, Context context) {
+//        this.scannedList = scannedList;
+//        this.proBar = proBar;
+//        this.context = context;
+//    }
+    public DownloadJson(ArrayList<LBG_Scanner> scannedList, ProgressBar proBar, DScannerListActivity context,RecyclerView recycleview) {
         this.scannedList = scannedList;
         this.proBar = proBar;
         this.context = context;
+        this.recycleview = recycleview;
     }
 
     // Hashmap for ListView
@@ -78,28 +80,25 @@ public class DownloadJson extends AsyncTask<Void, Void, String> {
             if(jsonData.startsWith("Error"))
             {
                 String error=jsonData;
-                Toast.makeText(context, error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context.getApplicationContext(), error, Toast.LENGTH_SHORT).show();
             }else
             {
                 //PARSER
               //  new JSONParser(c,jsonData,gv).execute();
                 scannedList =  new ParseJSON().ParseJSON(jsonData);
+                  recycleview.setAdapter( new RecyclerViewAdapter(context,scannedList,false));
+
             }
         }
 /**
  * Updating received data from JSON into ListView
  * */
 
-        public ArrayList<HashMap<String, String>> ReturnScannedList(){
-        return scannedList;
-    };
-
-
   //  public ArrayList<HashMap<String, String>> ReturnScannedListt() -> scannedList;
 
 
 //            ListAdapter adapter = new SimpleAdapter(
-//                    MainActivity.this, studentList,
+//        context, scannedList,
 //                    R.layout.list_item, new String[]{TAG_STUDENT_NAME, TAG_EMAIL,
 //                    TAG_STUDENT_PHONE_MOBILE}, new int[]{R.id.name,
 //                    R.id.email, R.id.mobile});
@@ -107,50 +106,5 @@ public class DownloadJson extends AsyncTask<Void, Void, String> {
 //            setListAdapter(adapter);
         //}
 
-    //DOWNLOAD
-    private String download()
-    {
-        Object connection= Connection.connect(url);
-        if(connection.toString().startsWith("Error"))
-        {
-            return connection.toString();
-        }
-
-        try
-        {
-            HttpURLConnection con= (HttpURLConnection) connection;
-            String var = con.getResponseMessage();
-            if(con.getResponseCode()==con.HTTP_OK)
-            {
-                //GET INPUT FROM STREAM
-                InputStream is=new BufferedInputStream(con.getInputStream());
-                BufferedReader br=new BufferedReader(new InputStreamReader(is));
-
-                String line;
-                StringBuffer jsonData=new StringBuffer();
-
-                //READ
-                while ((line=br.readLine()) != null)
-                {
-                    jsonData.append(line+"\n");
-                }
-
-                //CLOSE RESOURCES
-                br.close();
-                is.close();
-
-                //RETURN JSON
-                return jsonData.toString();
-
-            }else
-            {
-                return "Error "+con.getResponseMessage();
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-            return "Error "+e.getMessage();
-
-        }
-    }
 
 }

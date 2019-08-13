@@ -1,4 +1,4 @@
-package cristimark.androidscaner;
+package androidscaner;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import cristimark.androidscaner.dummy.DummyContent;
+import androidscaner.dummy.DummyContent;
 
 /**
  * A fragment representing a single 2DScanner detail screen.
